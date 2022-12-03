@@ -1,4 +1,4 @@
-package com.example.softwaretestingproject;
+package StepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 public class HamburgerMenuStepDefs {
     @Given("the Sauce Labs Backpack product page is opened")
     public void theSauceLabsBackpackProductPageIsOpened() {
+
     }
 
     @And("the Hamburger Menu is Clicked")

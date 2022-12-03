@@ -6,15 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class LoginPage {
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
 
     public static final By USERNAME = By.id("user-name");
     public static final By PASSWORD = By.id("password");
+    /*
     public static final By FIRSTNAME = By.id("first-name");
     public static final By LASTNAME = By.id("last-name");
     public static final By POSTAL_CODE = By.id("postal-code");
+
+     */
 
     @FindBy(id = "user-name")
     private WebElement username;
@@ -25,6 +28,7 @@ public class HomePage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
+    /*
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     private WebElement addBackpackToCartButton;
 
@@ -49,12 +53,14 @@ public class HomePage {
     @FindBy(className = "summary_total_label")
     private WebElement totalLabel;
 
+     */
+
     private WebDriver driver;
 
     @FindBy(xpath = "//h3")
-    public WebElement error1;
+    public WebElement loginErrorMessage;
 
-    public HomePage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -75,6 +81,7 @@ public class HomePage {
         loginButton.click();
     }
 
+    /*
     public void addBackpackToCart(){
         addBackpackToCartButton.click();
     }
@@ -94,5 +101,6 @@ public class HomePage {
     public String getTotal(){
         return totalLabel.getText();
     }
+     */
 
 }

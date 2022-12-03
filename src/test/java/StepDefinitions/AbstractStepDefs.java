@@ -1,5 +1,6 @@
-package com.example.softwaretestingproject;
+package StepDefinitions;
 
+import com.example.softwaretestingproject.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +14,7 @@ public abstract class AbstractStepDefs {
 
     static WebDriver driver;
 
-    protected static HomePage homePage;
+    protected static LoginPage loginPage;
 
     static {
 
@@ -23,7 +24,7 @@ public abstract class AbstractStepDefs {
         //options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(WAIT_TIME, TimeUnit.SECONDS);
-        homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
 
     }
 
