@@ -1,6 +1,6 @@
 package StepDefinitions;
 
-import com.example.softwaretestingproject.LoginPage;
+import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +15,7 @@ public abstract class AbstractStepDefs {
     static WebDriver driver;
 
     protected static LoginPage loginPage;
-
+    protected static InventoryPage inventoryPage;
     static {
 
         WebDriverManager.chromedriver().setup();
@@ -25,6 +25,7 @@ public abstract class AbstractStepDefs {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(WAIT_TIME, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
+        inventoryPage = new InventoryPage(driver);
 
     }
 

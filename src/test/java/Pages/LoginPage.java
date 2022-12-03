@@ -1,4 +1,4 @@
-package com.example.softwaretestingproject;
+package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+
+    private WebDriver driver;
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
 
@@ -55,10 +57,8 @@ public class LoginPage {
 
      */
 
-    private WebDriver driver;
-
     @FindBy(xpath = "//h3")
-    public WebElement loginErrorMessage;
+    private WebElement loginErrorMessage;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -79,6 +79,10 @@ public class LoginPage {
 
     public void clickLoginButton(){
         loginButton.click();
+    }
+
+    public String getLoginErrorMessage(){
+        return loginErrorMessage.getText();
     }
 
     /*
