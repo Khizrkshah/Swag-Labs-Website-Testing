@@ -20,7 +20,6 @@ Feature:Testing the login feature.
       | | secret_sauce| Epic sadface: Username is required  |
       | locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out.|
       | | | Epic sadface: Username is required  |
-      | | | Epic sadface: Username is required  |
 
 
 
