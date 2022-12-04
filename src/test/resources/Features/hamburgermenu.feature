@@ -1,4 +1,4 @@
-Feature: Hamburger Menu Test
+Feature: Hamburger Menu Test.
 
   Background:
     Given the homepage is open

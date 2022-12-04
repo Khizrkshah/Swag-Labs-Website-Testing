@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
+import java.util.*;
 
 public class InventoryPage {
 
@@ -111,5 +111,76 @@ public class InventoryPage {
         }else{
             return true;
         }
+    }
+
+    public boolean checkIfItemsFilteredAToZ(){
+        List<WebElement> elements = driver.findElements(By.cssSelector("div.page_wrapper div:nth-child(1) div:nth-child(2) div:nth-child(1) div.inventory_container > div.inventory_list"));
+        ArrayList<String> sortedByNameAscending = new ArrayList<>();
+        ArrayList<String> retrievedNames = new ArrayList<>();
+        for(WebElement element : elements){
+            retrievedNames.add(element.findElement(By.className("inventory_item_name")).getText());
+            sortedByNameAscending.add(element.findElement(By.className("inventory_item_name")).getText());
+        }
+        Collections.sort(sortedByNameAscending);
+        for(int i = 0; i < retrievedNames.size();i++){
+            if(!retrievedNames.get(i).equals(sortedByNameAscending.get(i))){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean checkIfItemsFilteredZToA(){
+        List<WebElement> elements = driver.findElements(By.cssSelector("div.page_wrapper div:nth-child(1) div:nth-child(2) div:nth-child(1) div.inventory_container > div.inventory_list"));
+        ArrayList<String> sortedByNameDescending = new ArrayList<>();
+        ArrayList<String> retrievedNames = new ArrayList<>();
+        for(WebElement element : elements){
+            retrievedNames.add(element.findElement(By.className("inventory_item_name")).getText());
+            sortedByNameDescending.add(element.findElement(By.className("inventory_item_name")).getText());
+        }
+        Collections.sort(sortedByNameDescending,Collections.reverseOrder());
+        for(int i = 0; i < retrievedNames.size();i++){
+            if(!retrievedNames.get(i).equals(sortedByNameDescending.get(i))){
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public boolean checkIfItemsFilteredLowToHigh(){
+        List<WebElement> elements = driver.findElements(By.cssSelector("div.page_wrapper div:nth-child(1) div:nth-child(2) div:nth-child(1) div.inventory_container > div.inventory_list"));
+        ArrayList<Float> sortedByPriceAscending = new ArrayList<>();
+        ArrayList<Float> retrievedPrice = new ArrayList<>();
+        for(WebElement element : elements){
+            retrievedPrice.add(Float.parseFloat(element.findElement(By.className("inventory_item_price")).getText().replace("$","")));
+            sortedByPriceAscending.add(Float.parseFloat(element.findElement(By.className("inventory_item_price")).getText().replace("$","")));
+        }
+        Collections.sort(sortedByPriceAscending);
+        for(int i = 0; i < retrievedPrice.size();i++){
+            if(!retrievedPrice.get(i).equals(sortedByPriceAscending.get(i))){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean checkIfItemsFilteredHighToLow(){
+        List<WebElement> elements = driver.findElements(By.cssSelector("div.page_wrapper div:nth-child(1) div:nth-child(2) div:nth-child(1) div.inventory_container > div.inventory_list"));
+        ArrayList<Float> sortedByPriceDescending = new ArrayList<>();
+        ArrayList<Float> retrievedPrice = new ArrayList<>();
+        for(WebElement element : elements){
+            retrievedPrice.add(Float.parseFloat(element.findElement(By.className("inventory_item_price")).getText().replace("$","")));
+            sortedByPriceDescending.add(Float.parseFloat(element.findElement(By.className("inventory_item_price")).getText().replace("$","")));
+        }
+        Collections.sort(sortedByPriceDescending,Collections.reverseOrder());
+        for(int i = 0; i < retrievedPrice.size();i++){
+            if(!retrievedPrice.get(i).equals(sortedByPriceDescending.get(i))){
+                return false;
+            }
+        }
+
+        return true;
     }
 }
