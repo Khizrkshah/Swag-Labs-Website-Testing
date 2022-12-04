@@ -17,7 +17,8 @@ Feature: Cart Testing.
     Then '<total>' should be shown
     Examples:
       | item | total |
-      | Sauce Labs Backpack | $29.99 |
-      | Sauce Labs Bike Light | $9.99 |
-      | Sauce Labs Backpack,Sauce Labs Bike Light | $39.98 |
-      | Sauce Labs Bolt T-Shirt,Sauce Labs Fleece Jacket,Sauce Labs Onesie | $73.97 |
+      | Sauce Labs Backpack | Total: $32.39 |
+      | Sauce Labs Bike Light | Total: $10.79 |
+      | Sauce Labs Backpack,Sauce Labs Bike Light | Total: $43.18 |
+      | Sauce Labs Bolt T-Shirt,Sauce Labs Fleece Jacket,Sauce Labs Onesie | Total: $79.89 |
+      | Sauce Labs Bolt T-Shirt,Sauce Labs Fleece Jacket,Sauce Labs Onesie,Test.allTheThings() T-Shirt (Red) | Total: $97.16 |

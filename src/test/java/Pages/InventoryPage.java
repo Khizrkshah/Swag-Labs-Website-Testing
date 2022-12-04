@@ -11,6 +11,9 @@ import java.util.*;
 public class InventoryPage {
 
     public static final String PAGE_URL = "https://www.saucedemo.com/inventory.html";
+    public static final By FIRSTNAME = By.id("first-name");
+    public static final By LASTNAME = By.id("last-name");
+    public static final By POSTAL_CODE = By.id("postal-code");
     private WebDriver driver;
 
     @FindBy(xpath = "//*[@id='react-burger-menu-btn']")
@@ -49,12 +52,45 @@ public class InventoryPage {
     @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-backpack']")
     private WebElement addCartSauceLabsBackpackButton;
 
+    @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-bike-light']")
+    private WebElement addCartSauceLabsBikeButton;
+
+    @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
+    private WebElement addCartSauceLabsBoltButton;
+
+    @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-fleece-jacket']")
+    private WebElement addCartSauceLabsFleeceButton;
+
+    @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-onesie']")
+    private WebElement addCartSauceLabsOnesieButton;
+
+    @FindBy(xpath = "//*[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+    private WebElement addCartRedTshirtButton;
+
+    @FindBy(xpath = "//*[@id='checkout']")
+    private WebElement checkoutButton;
+
+
+    @FindBy(xpath = "//div[@class=\"summary_total_label\"]")
+    private WebElement totalSummaryLabel;
+
+    @FindBy(xpath = "//*[@id='continue']")
+    private WebElement continueButton;
+
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void initializeInventoryPage(){
         PageFactory.initElements(driver, this);
+    }
+
+    public void fillField(By locator, String value) {
+        getField(locator).sendKeys(value);
+    }
+
+    public WebElement getField(By locator) {
+        return driver.findElement(locator);
     }
 
     public void clickOnCart(){
@@ -102,6 +138,39 @@ public class InventoryPage {
 
     public void clickOnAddCartBackpackButton(){
         addCartSauceLabsBackpackButton.click();
+    }
+
+    public void clickOnAddCartBikeLightButton(){
+        addCartSauceLabsBikeButton.click();
+    }
+
+    public void clickOnAddCartBoltShirtButton(){
+        addCartSauceLabsBoltButton.click();
+    }
+
+    public void clickOnAddCartFleeceJacketButton(){
+        addCartSauceLabsFleeceButton.click();
+    }
+
+    public void clickOnAddCartOnsieButton(){
+        addCartSauceLabsOnesieButton.click();
+    }
+
+    public void clickOnAddCartRedTshirtButton(){
+        addCartRedTshirtButton.click();
+    }
+
+
+    public void clickCheckoutButton(){
+        checkoutButton.click();
+    }
+
+    public void clickContinueButton(){
+        continueButton.click();
+    }
+
+    public String getTotal(){
+        return totalSummaryLabel.getText();
     }
 
     public boolean checkIfBadgeExists(){
