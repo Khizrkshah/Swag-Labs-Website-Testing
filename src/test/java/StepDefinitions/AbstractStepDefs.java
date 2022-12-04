@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractStepDefs {
 
-    private static final int WAIT_TIME = 10;
+    private static final int WAIT_TIME = 50;
 
     static WebDriver driver;
 

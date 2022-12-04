@@ -1,8 +1,12 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class InventoryPage {
 
@@ -39,11 +43,18 @@ public class InventoryPage {
     @FindBy(xpath = "//option[@value=\"hilo\"]")
     private WebElement priceHighLow;
 
-    @FindBy(className= "shopping_cart_link")
+    @FindBy(className = "shopping_cart_link")
     public WebElement shoppingCartLink;
+
+    @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-backpack']")
+    private WebElement addCartSauceLabsBackpackButton;
 
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public void initializeInventoryPage(){
+        PageFactory.initElements(driver, this);
     }
 
     public void clickOnCart(){
@@ -87,5 +98,18 @@ public class InventoryPage {
 
     public void clickOnPriceHighToLow(){
         priceHighLow.click();
+    }
+
+    public void clickOnAddCartBackpackButton(){
+        addCartSauceLabsBackpackButton.click();
+    }
+
+    public boolean checkIfBadgeExists(){
+        List<WebElement> elements = driver.findElements(By.cssSelector("div.page_wrapper div.header_container:nth-child(1) div.primary_header div.shopping_cart_container:nth-child(3) a.shopping_cart_link > span.shopping_cart_badge"));
+        if(elements.isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

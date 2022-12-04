@@ -31,4 +31,43 @@ public class HamburgerMenuStepDefs extends AbstractStepDefs {
     }
 
 
+    @When("About option is Clicked")
+    public void aboutOptionIsClicked() {
+        inventoryPage.clickOnAbout();
+    }
+
+    @Then("Check if About Webpage is opened")
+    public void checkIfAboutWebpageIsOpened() {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://saucelabs.com/");
+    }
+
+    @When("Logout option is Clicked")
+    public void logoutOptionIsClicked() {
+        inventoryPage.clickOnLogout();
+    }
+
+    @Then("The Login Screen is open")
+    public void theLoginScreenIsOpen() {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/");
+    }
+
+    @Given("the Sauce Labs Backpack is added to the cart")
+    public void theSauceLabsBackpackIsAddedToTheCart() {
+        inventoryPage.clickOnAddCartBackpackButton();
+    }
+
+    @And("the cart badge exists")
+    public void theCartBadgeExists() {
+        Assert.assertTrue(inventoryPage.checkIfBadgeExists());
+    }
+
+    @When("Reset App State is Clicked")
+    public void resetAppStateIsClicked() {
+        inventoryPage.clickOnReset();
+    }
+
+    @Then("the cart badge does not exist")
+    public void theCartBadgeDoesNotExist() {
+        Assert.assertFalse(inventoryPage.checkIfBadgeExists());
+    }
 }

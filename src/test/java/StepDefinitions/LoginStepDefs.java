@@ -22,6 +22,7 @@ public class LoginStepDefs extends AbstractStepDefs {
     @When("the Login button is clicked")
     public void theLoginButtonIsClicked() {
         loginPage.clickLoginButton();
+        inventoryPage.initializeInventoryPage();
     }
 
 
