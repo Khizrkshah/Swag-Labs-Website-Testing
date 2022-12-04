@@ -14,48 +14,11 @@ public class LoginPage {
 
     public static final By USERNAME = By.id("user-name");
     public static final By PASSWORD = By.id("password");
-    /*
-    public static final By FIRSTNAME = By.id("first-name");
-    public static final By LASTNAME = By.id("last-name");
-    public static final By POSTAL_CODE = By.id("postal-code");
 
-     */
-
-    @FindBy(id = "user-name")
-    private WebElement username;
-
-    @FindBy(id = "password")
-    private WebElement password;
 
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    /*
-    @FindBy(id = "add-to-cart-sauce-labs-backpack")
-    private WebElement addBackpackToCartButton;
-
-    @FindBy(className = "shopping_cart_link")
-    private WebElement shoppingCartLink;
-
-    @FindBy(id = "checkout")
-    private WebElement checkoutButton;
-
-    @FindBy(id = "first-name")
-    private WebElement firstName;
-
-    @FindBy(id = "last-name")
-    private WebElement lastName;
-
-    @FindBy(id = "postal-code")
-    private WebElement postalCode;
-
-    @FindBy(id = "continue")
-    private WebElement continueButton;
-
-    @FindBy(className = "summary_total_label")
-    private WebElement totalLabel;
-
-     */
 
     @FindBy(xpath = "//h3")
     private WebElement loginErrorMessage;
@@ -84,27 +47,5 @@ public class LoginPage {
     public String getLoginErrorMessage(){
         return loginErrorMessage.getText();
     }
-
-    /*
-    public void addBackpackToCart(){
-        addBackpackToCartButton.click();
-    }
-
-    public void clickOnCart(){
-        shoppingCartLink.click();
-    }
-
-    public void clickCheckoutButton(){
-        checkoutButton.click();
-    }
-
-    public void clickContinueButton(){
-        continueButton.click();
-    }
-
-    public String getTotal(){
-        return totalLabel.getText();
-    }
-     */
 
 }

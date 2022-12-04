@@ -24,9 +24,9 @@ Feature: Checkout Validity test.
       Then '<message>' is shown
 
       Examples:
-        | firstName | lastName | postCode | message
-        |  |  |  | Error: First Name is required
-        |  | Shah | 4032 | Error: First Name is required
-        | Khizr |  | 4032 | Error: Last Name is required
-        | Khizr | Shah |  | Error: Postal Code is required
+        | firstName | lastName | postCode | message |
+        |  |  |  | Error: First Name is required |
+        |  | Shah | 4032 | Error: First Name is required |
+        | Khizr |  | 4032 | Error: Last Name is required |
+        | Khizr | Shah |  | Error: Postal Code is required |
 

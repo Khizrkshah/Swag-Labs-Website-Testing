@@ -77,6 +77,9 @@ public class InventoryPage {
     @FindBy(xpath = "//*[@id='continue']")
     private WebElement continueButton;
 
+    @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]/h3")
+    private WebElement informationErrorMessage;
+
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -171,6 +174,10 @@ public class InventoryPage {
 
     public String getTotal(){
         return totalSummaryLabel.getText();
+    }
+
+    public String getInformationErrorMessage(){
+        return informationErrorMessage.getAttribute("innerText");
     }
 
     public boolean checkIfBadgeExists(){
