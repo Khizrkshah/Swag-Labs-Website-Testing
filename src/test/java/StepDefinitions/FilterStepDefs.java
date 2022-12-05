@@ -5,6 +5,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+/**
+ * The class used to test the filters.feature file.
+ */
 public class FilterStepDefs extends AbstractStepDefs {
     @Given("the Product Sort button is clicked")
     public void theProductSortButtonIsClicked() {

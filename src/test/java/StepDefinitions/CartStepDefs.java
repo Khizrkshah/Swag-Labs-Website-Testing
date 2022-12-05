@@ -10,7 +10,11 @@ import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 
+/**
+ * The class that is used to test the cart.feature file.
+ */
 public class CartStepDefs extends AbstractStepDefs{
+
     @Given("the {string} is added to the cart")
     public void theItemIsAddedToTheCart(String itemString) {
         String[] items = itemString.split(",");

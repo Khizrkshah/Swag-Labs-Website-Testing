@@ -8,6 +8,9 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 
+/**
+ * The class used to test the hamburgermenu.feature file.
+ */
 public class HamburgerMenuStepDefs extends AbstractStepDefs {
 
     @Given("the Cart is opened")

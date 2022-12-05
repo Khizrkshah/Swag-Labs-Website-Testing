@@ -7,6 +7,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+/**
+ * The class used to test the login.feature file.
+ */
 public class LoginStepDefs extends AbstractStepDefs {
 
     @Given("the Username is filled with {string}")
